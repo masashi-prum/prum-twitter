@@ -25,11 +25,6 @@ class UserTest < ActiveSupport::TestCase
   	assert_not @user.valid?
   end
 
-  # test "password should be present" do
-  # 	@user.password = ""
-  # 	assert_not @user.valid?
-  # end
-
   test "self_introduction be present" do
   	@user.self_introduction = ""
   	assert_not @user.valid?
@@ -49,11 +44,6 @@ class UserTest < ActiveSupport::TestCase
   	@user.email = "a" * 244 + "@example.com"
   	assert_not @user.valid?
   end
-
-  # test "password should not be too long" do
-  # 	@user.password = "a" * 21
-  # 	assert_not @user.valid?
-  # end
 
   test "self_introduction should not be too long" do
   	@user.self_introduction = "a" * 256
@@ -82,13 +72,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
 
-  # test "password should be present (nonblank)" do
-  #   @user.password = @user.password_confirmation = " " * 6
-  #   assert_not @user.valid?
-  # end
+  test "password should be present (nonblank)" do
+    @user.password = @user.password_confirmation = " " * 6
+    assert_not @user.valid?
+  end
 
-  # test "password should have a minimum length" do
-  #   @user.password = @user.password_confirmation = "a" * 5
-  #   assert_not @user.valid?
-  # end
+  test "password should have a minimum length" do
+    @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
+  end
 end
