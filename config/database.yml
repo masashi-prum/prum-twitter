@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: prum_twitter_production
-  username: prum_twitter
-  password: <%= ENV["PRUM_TWITTER_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
+  
