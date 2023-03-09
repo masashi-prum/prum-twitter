@@ -1,27 +1,29 @@
 <% provide(:title, 'Sign up') %>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    
+    <%= p "ユーザー登録" %>
     <%= form_with(model: @user) do |f| %>
     <%= render 'shared/error_messages' %>
-      <%= f.label :user_name %>
+      <%= f.label :ユーザーネーム %>
       <%= f.text_field :user_name, class: 'form-control' %>
 
-      <%= f.label :full_name %>
+      <%= f.label :フルネーム %>
       <%= f.text_field :full_name, class: 'form-control' %>
 
-      <%= f.label :email %>
+      <%= f.label :メールアドレス %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :self_introduction %>
-      <%= f.text_field :self_introduction, class: 'form-control' %>
+      <%= f.label :アイコン %>
+      <%= f.file_field :image, class: 'form-control' %>
 
-      <%= f.label :password %>
+      <%= f.label :パスワード %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "パスワード確認" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= f.submit "登録", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
