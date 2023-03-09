@@ -2,28 +2,44 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     
-    <%= p "ユーザー登録" %>
+    <!-- <%= p "ユーザー登録" %> -->
     <%= form_with(model: @user) do |f| %>
     <%= render 'shared/error_messages' %>
-      <%= f.label :ユーザーネーム %>
-      <%= f.text_field :user_name, class: 'form-control' %>
+      <%= f.label :メールアドレス %>
+      <%= f.email_field :email, class: 'form-control', placeholder: 'tanaka.tarou@prum.jp' %>
 
       <%= f.label :フルネーム %>
-      <%= f.text_field :full_name, class: 'form-control' %>
+      <%= f.text_field :full_name, class: 'form-control', placeholder: '田中太郎' %>
 
-      <%= f.label :メールアドレス %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label :ユーザーネーム %>
+      <%= f.text_field :user_name, class: 'form-control', placeholder: '@tanaka.0101' %>
 
       <%= f.label :アイコン %>
-      <%= f.file_field :image, class: 'form-control' %>
+      <br>
+      <label for="icon" class="form_icon_btn">
+        <%= f.file_field :image, id: 'icon', class: 'form-control', onchange: "loadImage(this);" %>
+        ファイルをアップロードする
+      </label>
+      <div id="post_images" style="display: none;">
+        <p id="preview"></p>
+      </div>
+      <br>
 
       <%= f.label :パスワード %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'form-control', placeholder: '●●●●●●' %>
 
       <%= f.label :password_confirmation, "パスワード確認" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "登録", class: "btn btn-primary" %>
+      <%= f.submit "登録", class: "btn btn-color" %>
     <% end %>
+
+    <div class="line"></div> <!-- 登録の下の線 -->
+    <div class="have_login">
+      <span>アカウントお持ちですか？</span>
+      <%= link_to "ログインする", login_path, class: "link-color" %>
+    </div>
+
+    <%= render "loadimage" %>
   </div>
 </div>
