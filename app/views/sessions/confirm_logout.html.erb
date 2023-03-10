@@ -1,8 +1,10 @@
+<%= stylesheet_link_tag 'logout' %>
 
-<p>本当にログアウトしますか？</p>
+<p class="logout_ttl">PRUMアカデミーからログアウトしますか？</p>
+<p class="logout_txt">いつでもログインし直すことができます。アカウントを切り替える場合は、既存のアカウントを追加すると切り替えることができます。</p>
 
-<%= button_to 'ログアウト', logout_path, method: :delete %>
-<%= link_to 'キャンセル', 'javascript:history.back();' %>
+<%= button_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-color' %>
+<%= link_to 'キャンセル', 'javascript:history.back();', class: 'btn btn-color-w' %>
 
 <script>
 	document.addEventListener('DOMContentLoaded', function() {

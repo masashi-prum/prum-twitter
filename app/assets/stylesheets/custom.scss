@@ -214,9 +214,14 @@ input[type="file"] {
 /*d form footer */ 
 
 .btn-color {
-  margin-top: 4rem;
+  margin-top: 1rem;
   background-color: black;
   color: white;
+}
+
+.btn-color-w {
+  background-color: white;
+  color: gray;
 }
 
 .btn-color:hover {
