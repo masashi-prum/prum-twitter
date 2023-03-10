@@ -1,0 +1,20 @@
+
+<p>本当にログアウトしますか？</p>
+
+<%= button_to 'ログアウト', logout_path, method: :delete %>
+<%= link_to 'キャンセル', 'javascript:history.back();' %>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+  var logoutButton = document.querySelector('#logout-button');
+  logoutButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    var result = confirm('本当にログアウトしますか？');
+    if (result) {
+      window.location.href = logoutButton.getAttribute('href');
+    } else {
+      window.location.href = document.referrer;
+    }
+  });
+});
+</script>
