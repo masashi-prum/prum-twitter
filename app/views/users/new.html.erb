@@ -1,8 +1,8 @@
 <% provide(:title, 'Sign up') %>
+<p class='user_create'>ユーザー登録</p>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     
-    <!-- <%= p "ユーザー登録" %> -->
     <%= form_with(model: @user) do |f| %>
     <%= render 'shared/error_messages' %>
       <%= f.label :メールアドレス %>
@@ -16,13 +16,14 @@
 
       <%= f.label :アイコン %>
       <br>
-      <label for="icon" class="form_icon_btn">
-        <%= f.file_field :image, id: 'icon', class: 'form-control', onchange: "loadImage(this);" %>
-        ファイルをアップロードする
-      </label>
-      <div id="post_images" style="display: none;">
-        <p id="preview"></p>
-      </div>
+        <label for="icon" class="form_icon_btn">
+          <%= f.file_field :image, id: 'icon', class: 'form-control', onchange: "loadImage(this);" %>
+          <span class="icon_uploadtxt">ファイルをアップロードする</span>
+        <div id="post_images" style="display: none;">
+          <p id="preview"></p>
+          <span id="filename">aaa</span>
+        </div>
+        </label>
       <br>
 
       <%= f.label :パスワード %>

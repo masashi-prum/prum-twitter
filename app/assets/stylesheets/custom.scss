@@ -13,7 +13,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding: 15%;
 }
 
 section {
@@ -176,24 +176,42 @@ input {
   display: block;
 }
 
-/* form icon */
+/*d form icon */
 
 input[type="file"] {
   display: none;
 }
 
+#post_images {
+  display: flex;
+  gap: 5px;
+  width: fit-content;
+  max-width: 100%;
+  height: 100%;
+  border: solid 1px black;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+#post_images > p {
+  margin: 0;
+  padding: 5px 5px;
+}
+
+#filename {
+  padding-right: 5px;
+}
+
 .form_icon_btn {
   background-color: #fff;
   cursor: pointer;
-  border: solid 1px #000;
   width: 100%;
   padding: 6px 10px;
   margin-bottom: 18px;
-
   color: rgb(162, 159, 159);
 }
 
-/* form footer */ 
+/*d form footer */ 
 
 .btn-color {
   margin-top: 4rem;
@@ -234,4 +252,52 @@ input[type="file"] {
 .link-color {
   color: #161515;
   font-weight: bold;
+}
+
+/*d logo */
+
+.logo_wrapper {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-10%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.logo_A {
+  width: 200px;
+}
+
+.login_ttl {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+/*d 背景とか枠とか */
+
+.login_view {
+  background-color: rgb(227, 223, 223);
+}
+
+.container {
+  background-color: #f8f7f7;
+  width: 100%;
+  border: solid 1px gray;
+  border-radius: 10px;
+  padding: 5% 2%;
+  position: relative;
+}
+
+.user_create {
+  font-weight: bold;
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+
+.form-control {
+  border: none;
 }

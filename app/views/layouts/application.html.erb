@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
+  <body class="login_view">
     <%= render 'layouts/header' %>
     <div class="container">
       <% flash.each do |message_type, message| %>
@@ -18,7 +18,9 @@
       <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
+      <!--デザイン外
       <%= debug(params) if Rails.env.development? %>
+      -->
     </div>
   </body>
 </html>

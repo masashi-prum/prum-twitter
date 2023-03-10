@@ -12,9 +12,17 @@
         fileReader.onload = (function (e) {
             var img = new Image();
             img.src = e.target.result;
+            img.width = "40";
             document.getElementById('preview').appendChild(img);
         });
       fileReader.readAsDataURL(obj.files[i]);
     }
+    const file = document.getElementById("icon").files[0];
+    // console.log(file.name);
+    const iconname = document.getElementById("filename")
+    // console.log(test);
+    iconname.innerHTML = file.name;
+
+    document.querySelector('.icon_uploadtxt').innerText = ''
   }
 </script>
