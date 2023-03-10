@@ -13,7 +13,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding: 10%;
 }
 
 section {
@@ -182,6 +182,26 @@ input[type="file"] {
   display: none;
 }
 
+#post_images {
+  display: flex;
+  gap: 5px;
+  width: fit-content;
+  max-width: 100%;
+  height: 100%;
+  border: solid 1px black;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+#post_images > p {
+  margin: 0;
+  padding: 5px 5px;
+}
+
+#filename {
+  padding-right: 5px;
+}
+
 .form_icon_btn {
   background-color: #fff;
   cursor: pointer;
@@ -234,4 +254,31 @@ input[type="file"] {
 .link-color {
   color: #161515;
   font-weight: bold;
+}
+
+/* logo */
+
+.logo_wrapper {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-10%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.logo_A {
+  width: 200px;
+}
+
+/* 背景とか枠とか */
+
+.login_view {
+  background-color: rgb(227, 223, 223);
+}
+
+.container {
+  background-color: #fff;
+  border: solid 1px gray;
+  padding: 2% 5%;
 }

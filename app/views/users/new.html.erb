@@ -16,13 +16,14 @@
 
       <%= f.label :アイコン %>
       <br>
-      <label for="icon" class="form_icon_btn">
-        <%= f.file_field :image, id: 'icon', class: 'form-control', onchange: "loadImage(this);" %>
-        ファイルをアップロードする
-      </label>
-      <div id="post_images" style="display: none;">
-        <p id="preview"></p>
-      </div>
+        <label for="icon" class="form_icon_btn">
+          <%= f.file_field :image, id: 'icon', class: 'form-control', onchange: "loadImage(this);" %>
+          <span class="icon_uploadtxt">ファイルをアップロードする</span>
+        <div id="post_images" style="display: none;">
+          <p id="preview"></p>
+          <span id="filename">aaa</span>
+        </div>
+        </label>
       <br>
 
       <%= f.label :パスワード %>
