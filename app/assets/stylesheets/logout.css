@@ -1,4 +1,4 @@
-body {
+.logout_body {
     background-color: rgb(181 171 174) !important;
     padding: 25%;
     height: 100vh;
@@ -6,11 +6,11 @@ body {
     align-items: center;
 }
 
-header img {
+.logout_header img {
     display: none !important;
 }
 
-.container {
+.logout_style {
     padding: 10% 8%;
     width: 60%;
 }

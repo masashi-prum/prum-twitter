@@ -1,3 +1,17 @@
 <%= @user.user_name %>, <%= @user.full_name %>, <%= @user.email %>, <%= @user. self_introduction %>
  <%= image_tag @user.image.variant(resize_to_limit: [100, 100]) %>
 <%= link_to "Log out", logout_path %>
+
+<script>
+  document.addEventListener("turbo:load", function() {
+  const body = document.querySelector('body');
+  body.classList.remove('logout_body');
+
+  const container = document.querySelector('.container');
+  container.classList.remove('logout_style');
+
+  const logo = document.querySelector('header');
+  logo.classList.remove('logout_header');
+});
+
+</script>
