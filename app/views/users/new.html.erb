@@ -1,8 +1,8 @@
 <% provide(:title, 'Sign up') %>
+<p class='user_create'>ユーザー登録</p>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     
-    <!-- <%= p "ユーザー登録" %> -->
     <%= form_with(model: @user) do |f| %>
     <%= render 'shared/error_messages' %>
       <%= f.label :メールアドレス %>

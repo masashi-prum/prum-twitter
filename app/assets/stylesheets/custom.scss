@@ -13,7 +13,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding: 10%;
+  padding: 15%;
 }
 
 section {
@@ -176,7 +176,7 @@ input {
   display: block;
 }
 
-/* form icon */
+/*d form icon */
 
 input[type="file"] {
   display: none;
@@ -205,15 +205,13 @@ input[type="file"] {
 .form_icon_btn {
   background-color: #fff;
   cursor: pointer;
-  border: solid 1px #000;
   width: 100%;
   padding: 6px 10px;
   margin-bottom: 18px;
-
   color: rgb(162, 159, 159);
 }
 
-/* form footer */ 
+/*d form footer */ 
 
 .btn-color {
   margin-top: 4rem;
@@ -256,7 +254,7 @@ input[type="file"] {
   font-weight: bold;
 }
 
-/* logo */
+/*d logo */
 
 .logo_wrapper {
   position: absolute;
@@ -271,14 +269,35 @@ input[type="file"] {
   width: 200px;
 }
 
-/* 背景とか枠とか */
+.login_ttl {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+/*d 背景とか枠とか */
 
 .login_view {
   background-color: rgb(227, 223, 223);
 }
 
 .container {
-  background-color: #fff;
+  background-color: #f8f7f7;
+  width: 100%;
   border: solid 1px gray;
-  padding: 2% 5%;
+  border-radius: 10px;
+  padding: 5% 2%;
+  position: relative;
+}
+
+.user_create {
+  font-weight: bold;
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+
+.form-control {
+  border: none;
 }

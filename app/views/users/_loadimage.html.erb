@@ -12,7 +12,7 @@
         fileReader.onload = (function (e) {
             var img = new Image();
             img.src = e.target.result;
-            img.width = "30";
+            img.width = "40";
             document.getElementById('preview').appendChild(img);
         });
       fileReader.readAsDataURL(obj.files[i]);
