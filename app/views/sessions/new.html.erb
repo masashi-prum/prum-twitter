@@ -30,3 +30,17 @@
     -->
   </div>
 </div>
+
+<script>
+  document.addEventListener("turbo:load", function() {
+  const body = document.querySelector('body');
+  body.classList.remove('logout_body');
+
+  const container = document.querySelector('.container');
+  container.classList.remove('logout_style');
+
+  const logo = document.querySelector('header');
+  logo.classList.remove('logout_header');
+});
+
+</script>
