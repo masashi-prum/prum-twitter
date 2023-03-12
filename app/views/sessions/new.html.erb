@@ -6,7 +6,7 @@
     <%= form_with(url: login_path, scope: :session) do |f| %>
 
       <%= f.label :ユーザー名またはメールアドレス %>
-      <%= f.email_field :email, class: 'form-control', placeholder: 'tanaka.tarou@prum.jp' %>
+      <%= f.text_field :login_id, class: 'form-control', placeholder: 'tanaka.tarou@prum.jp' %>
 
       <%= f.label :パスワード %>
       <%= f.password_field :password, class: 'form-control', placeholder: '●●●●●●' %>

@@ -1,48 +1,22 @@
 require "test_helper"
 
 class TweetsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @tweet = tweets(:one)
+   def setup
+    @tweet = tweets(:orange)
   end
 
-  test "should get index" do
-    get tweets_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get new_tweet_url
-    assert_response :success
-  end
-
-  test "should create tweet" do
-    assert_difference("Tweet.count") do
-      post tweets_url, params: { tweet: { content: @tweet.content, user_id: @tweet.user_id } }
+  test "should redirect create when not logged in" do
+    assert_no_difference 'Tweet.count' do
+      post tweets_path, params: { tweet: { content: "Lorem ipsum" } }
     end
-
-    assert_redirected_to tweet_url(Tweet.last)
+    assert_redirected_to login_url
   end
 
-  test "should show tweet" do
-    get tweet_url(@tweet)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_tweet_url(@tweet)
-    assert_response :success
-  end
-
-  test "should update tweet" do
-    patch tweet_url(@tweet), params: { tweet: { content: @tweet.content, user_id: @tweet.user_id } }
-    assert_redirected_to tweet_url(@tweet)
-  end
-
-  test "should destroy tweet" do
-    assert_difference("Tweet.count", -1) do
-      delete tweet_url(@tweet)
+  test "should redirect destroy when not logged in" do
+    assert_no_difference 'Tweet.count' do
+      delete tweet_path(@tweet)
     end
-
-    assert_redirected_to tweets_url
+    assert_response :see_other
+    assert_redirected_to login_url
   end
 end
