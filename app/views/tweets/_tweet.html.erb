@@ -1,12 +1,8 @@
-<div id="<%= dom_id tweet %>">
-  <p>
-    <strong>User:</strong>
-    <%= tweet.user_id %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= tweet.content %>
-  </p>
-
-</div>
+<li id="tweet-<%= tweet.id %>">
+  <%= link_to gravatar_for(tweet.user, size: 50), tweet.user %>
+  <span class="user"><%= link_to tweet.user.name, tweet.user %></span>
+  <span class="content"><%= tweet.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(tweet.created_at) %> ago.
+  </span>
+</li>

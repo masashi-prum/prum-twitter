@@ -6,6 +6,8 @@ gem "bootstrap-sass",  "3.4.1"
 gem 'rails-controller-testing'
 gem 'ruby-vips', '~> 2.1', '>= 2.1.4'
 gem 'mini_magick', '~> 4.8'
+gem "will_paginate",           "3.3.1"
+gem "bootstrap-will_paginate", "1.0.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 
