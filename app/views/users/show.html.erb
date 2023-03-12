@@ -2,6 +2,16 @@
  <%= image_tag @user.image.variant(resize_to_limit: [100, 100]) %>
 <%= link_to "Log out", logout_path %>
 
+<div class="col-md-8">
+    <% if @user.tweets.any? %>
+      <h3>tweets (<%= @user.tweets.count %>)</h3>
+      <ol class="tweets">
+        <%= render @tweets %>
+      </ol>
+      <%= will_paginate @tweets %>
+    <% end %>
+  </div>
+
 <script>
   document.addEventListener("turbo:load", function() {
   const body = document.querySelector('body');

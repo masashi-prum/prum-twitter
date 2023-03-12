@@ -1,27 +1,8 @@
-<%= form_with(model: tweet) do |form| %>
-  <% if tweet.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
-
-      <ul>
-        <% tweet.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<li id="tweet-<%= tweet.id %>">
+  <%= link_to gravatar_for(tweet.user, size: 50), tweet.user %>
+  <span class="user"><%= link_to tweet.user.name, tweet.user %></span>
+  <span class="content"><%= tweet.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(tweet.created_at) %> ago.
+  </span>
+</li>

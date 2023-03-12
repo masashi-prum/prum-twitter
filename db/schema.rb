@@ -43,10 +43,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_144723) do
   end
 
   create_table "tweets", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id", null: false
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_tweets_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,10 +59,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_144723) do
     t.datetime "updated_at", null: false
     t.text "self_introduction"
     t.string "password_digest"
-    t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "tweets", "users"
 end
