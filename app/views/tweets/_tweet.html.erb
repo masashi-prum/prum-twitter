@@ -1,16 +1,20 @@
 <li id="tweet-<%= tweet.id %>">
   <%= link_to gravatar_for(tweet.user, size: 50), tweet.user %>
-  <span class="user"><%= link_to tweet.user.user_name, tweet.user %></span>
-  <span class="content">
-  	<% if tweet.image.attached? %>
-      <%= image_tag tweet.image.variant(:display) %>
-    <% end %>
+  <span class="user">
+    <%= tweet.user.full_name %>
+    <%= link_to tweet.user.user_name, tweet.user %>
+    <%= time_ago_in_words(tweet.created_at) %>前
   </span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(tweet.created_at) %> ago.
+
+  <span class="content">
+    <%= tweet.content %>
+  </span>
+
+<!-- ここにグーグルマップ -->
+
     <% if current_user?(tweet.user) %>
       <%= link_to "delete", tweet, data: { "turbo-method": :delete,
                                                turbo_confirm: "You sure?" } %>
     <% end %>
-  </span>
+
 </li>
