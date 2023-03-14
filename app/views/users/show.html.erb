@@ -1,31 +1,37 @@
-<% provide(:title, ) %>
-
-<%= @user.user_name %>, <%= @user.full_name %>, <%= @user.email %>, <%= @user. self_introduction %>
- <%= image_tag @user.image.variant(resize_to_limit: [100, 100]) %>
-<%= link_to "Log out", logout_path %>
-
+<% provide(:title, @user.user_name) %>
 <div class="row">
- 
-  <div class="col-md-8">
-    <% if @user.tweets.any? %>
-      <h3>tweets (<%= @user.tweets.count %>)</h3>
-      <ol class="tweets">
-        <%= render @tweets %>
-      </ol>
-      <%= will_paginate @tweets %>
-    <% end %>
-  </div>
+	<aside class="col-md-4">
+		<section class="user_info">
+			<h1>
+				<%= gravatar_for @user %>
+				<%= @user.user_name %>
+			</h1>
+		</section>
+	</aside>
+	<div class="col-md-8">
+		<% if @user.tweets.any? %>
+		<h3>Tweets (<%= @user.tweets.count %>)</h3>
+		<ol class="tweets">
+			<%= render @tweets %>
+		</ol>
+		<%= will_paginate @tweets %>
+		<% end %>
+	</div>
+
+	<%= @user.user_name %>, <%= @user.full_name %>, <%= @user.email %>, <%= @user. self_introduction %>
+	<%= image_tag @user.image.variant(resize_to_limit: [100, 100]) %>
+	<%= link_to "Log out", logout_path %>
 </div>
 <script>
-  document.addEventListener("turbo:load", function() {
-  const body = document.querySelector('body');
-  body.classList.remove('logout_body');
+	document.addEventListener("turbo:load", function() {
+		const body = document.querySelector('body');
+		body.classList.remove('logout_body');
 
-  const container = document.querySelector('.container');
-  container.classList.remove('logout_style');
+		const container = document.querySelector('.container');
+		container.classList.remove('logout_style');
 
-  const logo = document.querySelector('header');
-  logo.classList.remove('logout_header');
-});
+		const logo = document.querySelector('header');
+		logo.classList.remove('logout_header');
+	});
 
 </script>

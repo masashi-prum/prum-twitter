@@ -63,4 +63,10 @@ class User < ApplicationRecord
   def deletable_by?(user)
     self == user
   end
+
+  # 試作feedの定義
+  # 完全な実装は次章の「ユーザーをフォローする」を参照
+  def feed
+    Tweet.where("user_id = ?", id)
+  end
 end
