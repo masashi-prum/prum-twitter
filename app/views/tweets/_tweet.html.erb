@@ -2,8 +2,9 @@
   <%= link_to gravatar_for(tweet.user, size: 50), tweet.user %>
   <span class="user"><%= link_to tweet.user.user_name, tweet.user %></span>
   <span class="content">
-  	<%= tweet.content %>
-  	<%= image_tag tweet.image if tweet.image.attached? %>
+  	<% if tweet.image.attached? %>
+      <%= image_tag tweet.image.variant(:display) %>
+    <% end %>
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(tweet.created_at) %> ago.
