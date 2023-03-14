@@ -13,7 +13,31 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding: 15%;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.left_col {
+  width: 20%;
+  max-width: 300px;
+  min-width: 300px;
+  height: 100vh;
+  background-color: #c31b1b;
+}
+
+.center_col {
+  width: 80%;
+  max-width: 600px;
+  min-width: 600px;
+  height: 100vh;
+  background-color: #c43838;
+}
+
+.right_col {
+  width: 20%;
+  height: 100vh;
+  background-color: #15176d;
 }
 
 section {
@@ -221,7 +245,7 @@ input[type="file"] {
 
 .btn-color-w {
   background-color: white;
-  color: gray;
+  color: black;
 }
 
 .btn-color:hover {
@@ -284,15 +308,20 @@ input[type="file"] {
 /*d 背景とか枠とか */
 
 .login_view {
-  background-color: rgb(227, 223, 223);
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }
 
 .container {
-  background-color: #f8f7f7;
+  background-color: #fff;
   width: 100%;
+  min-width: 600px;
+  height: 100%;
   border: solid 1px gray;
   border-radius: 10px;
-  padding: 5% 2%;
+  padding: 5% 0;
   position: relative;
 }
 
@@ -365,3 +394,636 @@ span.image {
     border: 0;
   }
 }
+
+/* sidebar */
+
+.sidebar-header-l {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 25%;
+  max-width: 350px;
+  min-width: 350px;
+  height: 100vh;
+  background-color: #fff;
+  color: black;
+  padding: 10px 0 20px 111px;
+  z-index: 9;
+  border-right: solid 2px #d5cece;
+}
+
+.sidebar-header-r {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 350px;
+  min-width: 350px;
+  height: 100vh;
+  background-color: #fff;
+  color: black;
+  padding: 10px 0 20px 111px;
+  z-index: 8;
+  border-left: solid 2px #d5cece;
+}
+
+.icon_wrapper {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  margin: 0 0 5px 20px;
+  cursor: pointer;
+}
+
+.icon_wrapper img {
+  width: 40px;
+  height: 40px;
+}
+
+.icon_wrapper p {
+  margin: 7px;
+  color: black;
+}
+
+.no-underline:hover {
+  text-decoration: none;
+}
+
+.icon_wrapper p:hover {
+  text-decoration: none;
+}
+
+.btn-color-o {
+  background-color: orange;
+  color: #fff;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.sideform {
+  width: 180px;
+}
+
+.logo_B {
+  width: 180px;
+  margin: 5px 5px 15px 8px;
+}
+
+/* modal-tweet */
+
+  /* モーダルの背景 */
+  .modal-tweet {
+    display: none;
+    position: fixed;
+    z-index: 101;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  /* モーダルのコンテンツ */
+  .modal-content-tweet {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 55%;
+    max-width: 600px;
+    min-width: 400px;
+    height: 45%;
+    min-height: 250px;
+    position: relative;
+  }
+
+  /* モーダルのボタン */
+  #modal-btn-tweet:focus {
+    outline: none;
+  }
+
+  /* 閉じるボタン */
+  .close {
+    color: black;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    font-size: 35px;
+    font-weight: lighter;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+/* modal-edit */
+
+  .modal_edit {
+    display: none;
+    position: fixed;
+    z-index: 101;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  /* モーダルのコンテンツ */
+  .modal-content_edit {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  /* 閉じるボタン */
+  .close_edit {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close_edit:hover,
+  .close_edit:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+/* modal_side_edit */ 
+
+  .modal_side_edit {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 105;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .modal_side_edit p {
+    margin: 0;
+  }
+
+  #modal-btn_side_edit {
+    display: none;
+  }
+
+  /* モーダルのコンテンツ */
+  .modal-content_side_edit {
+    position: absolute;
+    top: 300px;
+    left: 125px;
+    background-color: #fefefe;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 10px 30px 10px 25px;
+    max-width: 250px;
+    max-height: 120px;
+  }
+
+  .icon_wrapper label {
+    cursor: pointer;
+  }
+
+  .icon_wrapper p {
+    color: black;
+    font-weight: normal;
+  }
+
+  .modal-content_side_edit label { 
+    cursor: pointer;
+    color: black;
+    font-weight: normal;
+  }
+
+  .modal_side_edit_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* 閉じるボタン */
+  .close_side_edit {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close_side_edit:hover,
+  .close_side_edit:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+/* modal_account_edit */ 
+
+  #modal-btn_account_edit {
+    display: none;
+  }
+
+  .modal_account_edit {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+
+  /* モーダルのコンテンツ */
+  .modal-content_account_edit {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    height: 80%;
+    max-width: 500px;
+    max-height: 360px;
+  }
+
+  /* 閉じるボタン */
+  .close_account_edit {
+    color: #aaa;
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close_account_edit:hover,
+  .close_account_edit:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .arrow_back {
+    opacity: 0.6;
+    width: 30px;
+    height: 30px;
+  }
+
+  .edit_flex {
+    display: flex;
+    justify-content: start;
+  }
+  .edit_flex_l {
+    display: flex;
+    gap: 40px;
+  }
+  .edit_flex_l p {
+    margin:   0;
+    line-height: 35px;
+    font-weight: bold;
+  }
+  
+  .col {
+    position: relative;
+  }
+  
+  .edit_save {
+    width: 120px !important;
+    font-size: 1.7rem;
+    position: absolute;
+    top: -50px;
+    left: 330px;
+  }
+
+  .edit_save:focus {
+    outline: none;
+  }
+
+  .edit_form {
+    width: 100%;
+    margin: 10px 0 0 0;
+  }
+
+/* modal_account_delete */ 
+
+  #modal-btn_account_delete {
+    display: none;
+  }
+
+  .modal_account_delete {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+
+  /* モーダルのコンテンツ */
+  .modal-content_account_delete {
+    background-color: #fefefe;
+    margin: 10% auto;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%;
+    height: 80%;
+    max-width: 300px;
+    max-height: 350px;
+  }
+
+  /* 閉じるボタン */
+  .close_account_delete {
+    color: #aaa;
+    font-weight: bold;
+  }
+
+  .close_account_delete:hover,
+  .close_account_delete:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .delete_flex {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+  }
+  .delete_flex_l {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 10px;
+  }
+  .delete_flex_l p {
+    margin:   0;
+    line-height: 23px;
+    font-weight: bold;
+  }
+
+  .delete_flex_col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .delete_flex_col span:first-child {
+    font-size: 1.5rem;
+  }
+
+  .arrow_back_delete {
+    opacity: 0.6;
+    width: 20px;
+    height: 20px;
+  }
+
+  .delete_msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .delete_msg div p {
+    font-size: 1.3rem;
+    opacity: 0.6;
+  }
+
+  .delete_msg div {
+    margin-bottom: 25px;
+  }
+
+  .btn_delete_link:focus {
+    outline: none !important;
+  }
+
+/* modal_account_delete_pass */ 
+
+.modal_account_delete_pass {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+/* モーダルのコンテンツ */
+.modal-content_account_delete_pass {
+  background-color: #fefefe;
+    margin: 10% auto;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    width: 80%;
+    height: 80%;
+    max-width: 300px;
+    max-height: 260px;
+}
+
+/* 閉じるボタン */
+.close_account_delete_pass {
+  color: #aaa;
+  font-weight: bold;
+}
+
+.close_account_delete_pass:hover,
+.close_account_delete_pass:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pass_check {
+  font-weight: bold;
+}
+
+.delete_msg_pass div p {
+  opacity: 0.6;
+  line-height: 20px;
+}
+
+.pass_label_none {
+  display: none;
+}
+
+.delete_form {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.btn_r {
+  width: 123px !important;
+  height: 32px !important;
+  float: right;
+}
+.btn_r:focus {
+  outline: none !important;
+}
+
+/* sidebar */ 
+
+  .sidebar_tweet_all {
+    display: flex;
+    padding-top: 30px;
+    height: 100%;
+  }
+
+  .sidebar_tweet_image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .sidebar_tweet_name_txt {
+    width: 100%;
+  }
+
+  .sidebar_tweet_txt {
+    width: 100%;
+    height: 55%;
+  }
+  .sidebar_tweet_txt form {
+    width: 100%;
+    height: 100%;
+  }
+
+  .sidebar_tweet_txt textarea {
+    border: none;
+    resize: none;
+    width: 100%;
+    height: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+  }
+  .sidebar_tweet_txt textarea:focus {
+    outline: none;
+  }
+
+  .sidebar_tweet_btn {
+    width: 150px !important;
+    position: absolute;
+    bottom: 0;
+    right: 12px;
+  }
+  .sidebar_tweet_btn:focus {
+    outline: none !important;
+  }
+
+/* ユーザーの投稿一覧 */
+
+.user_home {
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.edit_icon {
+  position: absolute;
+}
+
+.flex_col {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.full_name {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.user_name {
+  opacity: 0.7;
+}
+
+.self_intro {
+  margin: 20px 0;
+}
+
+.follow {
+  display: flex;
+  gap: 10px;
+}
+
+.follow_count {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-color_edit {
+  background-color: white;
+  border: 1px solid #000;
+  color: black;
+  width: 230px !important;
+  float: right;
+}
+
+.btn-color_edit:focus {
+  outline: none !important;
+}
+
+.tweet_tab {
+  display: flex;
+}
+
+.tab_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px 10px 0;
+}
+
+.tab_block > div {
+  font-size: 1.1em;
+}
+
+.orenge_line_tweet {
+  width: 50px;
+  height: 10px;
+  background-color: orange;
+}
+
+.orenge_line_res {
+  width: 80px;
+  height: 10px;
+  background-color: orange;
+}
+
+.tweet_topline {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  border-top: 2px solid gray;
+}
+
+.tweet_container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+
