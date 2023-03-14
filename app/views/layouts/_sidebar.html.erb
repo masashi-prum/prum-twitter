@@ -24,18 +24,21 @@
         </div>
     <% end %>
 
-    <%= link_to edit_user_path(current_user), class: "no-underline" do %>
-        <div class="icon_wrapper">
-            <%= image_tag 'gear_icon', class: 'gear' %>
-            <p>設定</p>
-        </div>
-    <% end %>
+    <!-- <%= link_to edit_user_path(current_user), class: "no-underline" do %> -->
+        <label for="modal-btn_side_edit">
+            <div class="icon_wrapper">
+                <%= image_tag 'gear_icon', class: 'gear' %>
+                <p>設定</p>
+                <button id="modal-btn_side_edit">設定</button>
+            </div>
+        </label>
+    <!-- <% end %> -->
 
     <div class="sideform">
         <button id="modal-btn-tweet" class="btn btn-color-o"><p>ツイートする</p></button>
     </div>
 
-    <!-- モーダル -->
+    <!-- モーダル ツイート -->
 
     <div id="modal-tweet" class="modal-tweet">
       <div class="modal-content-tweet">
@@ -62,6 +65,135 @@
       </div>
     </div>
 
+    <!-- モーダル 設定 -->
+
+    <div id="modal_side_edit" class="modal_side_edit">
+      <div class="modal-content_side_edit">
+        <span class="close_side_edit"></span>
+        <label for="modal-btn_account_edit">
+            <div class="modal_side_edit_flex" id="account-info">
+                <%= image_tag 'person_icon', class: 'person' %>
+                <p>アカウント情報</p>
+                <button id="modal-btn_account_edit"></button>
+            </div>
+        </label>
+        <label for="modal-btn_account_delete">
+            <div class="modal_side_edit_flex">
+                <%= image_tag 'heart_broken_icon', class: 'heart_broken' %>
+                <p>アカウント削除</p>
+                <button id="modal-btn_account_delete"></button>
+            </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- モーダル 編集 -->
+
+    <div id="modal_account_edit" class="modal_account_edit">
+      <div class="modal-content_account_edit">
+        <div class="edit_flex">
+            <div class="edit_flex_l">
+                <span class="close_account_edit">
+                    <%= image_tag 'arrow_back_icon', class: 'arrow_back' %>
+                </span>
+                <p>アカウント情報</p>
+            </div>
+        </div>
+
+            <div class="col">
+                <div class="col-md-6 col-md-offset-3 edit_form">
+                    <%= form_with(model: @user) do |f| %>
+                    <%= render 'shared/error_messages' %>
+
+                    <%= f.label :email, "メールアドレス" %>
+                    <%= f.email_field :email, class: 'form-control' %>
+
+                    <%= f.label :name, "フルネーム" %>
+                    <%= f.text_field :user_name, class: 'form-control' %>
+
+                    <%= f.label :name, "ユーザーネーム" %>
+                    <%= f.text_field :full_name, class: 'form-control' %>
+
+                    <%= f.label :password, "パスワード" %>
+                    <%= f.password_field :password, class: 'form-control', placeholder: '●●●●●●' %>
+
+                    <%= f.submit "保存", class: "btn btn-color-o edit_save" %>
+                    <% end %>
+                </div>
+            </div>
+
+      </div>
+    </div>
+
+    <!-- モーダル 削除 -->
+
+    <div id="modal_account_delete" class="modal_account_delete">
+      <div class="modal-content_account_delete">
+        <div>
+            <div class="delete_flex_l">
+                <span class="close_account_delete">
+                    <%= image_tag 'arrow_back_icon', class: 'arrow_back_delete' %>
+                </span>
+                <p>アカウントを消去</p>
+            </div>
+        </div>
+        <div class="delete_flex">
+            <div>
+                <%= image_tag current_user.image.variant(resize: "60x60"), class: 'delete_icon' %>
+            </div>
+            <div>
+                <div class="delete_flex_col">
+                    <span class="full_name"><%= @user.full_name %></span>
+                    <span class="user_name"><%= @user.user_name %></span>
+                </div>
+            </div>
+        </div>
+        <div class="delete_msg">
+            <p>アカウントが削除されます</p>
+            <div>
+                <p>Twitterアカウントの削除プロセスを開始します。表示名、ユーザー名、公開プロフィールはTwitter.com、Twitter for iOS、Twitter for Androidに表示されなくなります。</p>
+            </div>
+            <button id="modal-btn_account_delete_pass" class="btn btn-danger btn_delete_link">アカウント消去</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- モーダル パスワード -->
+
+    <div id="modal_account_delete_pass" class="modal_account_delete_pass">
+      <div class="modal-content_account_delete_pass">
+        <div>
+            <div class="delete_flex_l">
+                <span class="close_account_delete_pass">
+                    <%= image_tag 'arrow_back_icon', class: 'arrow_back_delete' %>
+                </span>
+                <p>パスワードを確認</p>
+            </div>
+        </div>
+        <div class="delete_msg_pass">
+            <p class="pass_check">パスワードを確認</p>
+            <div>
+                <p>アカウント削除リクエストを完了するにはアカウントに登録されているパスワードを入力してください。</p>
+            </div>
+
+            <div class="col">
+                <div class="col-md-6 col-md-offset-3 delete_form">
+                    <%= form_with(model: @user) do |f| %>
+                    <%= render 'shared/error_messages' %>
+
+                    <%= f.label :password, "パスワード", class: "pass_label_none" %>
+                    <%= f.password_field :password, class: 'form-control' %>
+
+                    <% end %>
+                </div>
+            </div>
+
+            <button id="modal-btn_account_delete_pass" class="btn btn-danger btn_r">アカウント消去</button>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </header>
 <header class="row sidebar-header-r">
@@ -73,30 +205,82 @@
 <script>
 
     // モーダルを開くためのボタンを取得
-    var modalBtn = document.getElementById("modal-btn-tweet");
+    var modalBtn_tweet = document.getElementById("modal-btn-tweet");
+    var modalBtn_side_edit = document.getElementById("modal-btn_side_edit");
+    var modalBtn_account_edit = document.getElementById("modal-btn_account_edit");
+    var modalBtn_account_delete = document.getElementById("modal-btn_account_delete");
+    var modalBtn_account_delete_pass = document.getElementById("modal-btn_account_delete_pass");
 
     // モーダル要素を取得
-    var modal = document.getElementById("modal-tweet");
+    var modal_tweet = document.getElementById("modal-tweet");
+    var modal_side_edit = document.getElementById("modal_side_edit");
+    var modal_account_edit = document.getElementById("modal_account_edit");
+    var modal_account_delete = document.getElementById("modal_account_delete");
+    var modal_account_delete_pass = document.getElementById("modal_account_delete_pass");
 
     // 閉じるボタンを取得
-    var closeBtn = document.getElementsByClassName("close")[0];
+    var closeBtn_tweet = document.getElementsByClassName("close")[0];
+    var closeBtn_side_edit = document.getElementsByClassName("close_side_edit")[0];
+    var closeBtn_account_edit = document.getElementsByClassName("close_account_edit")[0];
+    var closeBtn_account_delete = document.getElementsByClassName("close_account_delete")[0];
+    var closeBtn_account_delete_pass = document.getElementsByClassName("close_account_delete_pass")[0];
 
     // ボタンをクリックした際に、モーダルを表示する
-    modalBtn.onclick = function() {
-    modal.style.display = "block";
-    }
+        modalBtn_tweet.onclick = function() {
+        modal_tweet.style.display = "block";
+        }
+        modalBtn_side_edit.onclick = function() {
+        modal_side_edit.style.display = "block";
+        }
+        modalBtn_account_edit.onclick = function() {
+        modal_account_edit.style.display = "block";
+        modal_side_edit.style.display = "none";
+        }
+        modalBtn_account_delete.onclick = function() {
+        modal_account_delete.style.display = "block";
+        modal_side_edit.style.display = "none";
+        }
+        modalBtn_account_delete_pass.onclick = function() {
+        modal_account_delete_pass.style.display = "block";
+        modal_account_delete.style.display = "none";
+        }
 
-    // 閉じるボタンをクリックした際に、モーダルを非表示にする
-    closeBtn.onclick = function() {
-    modal.style.display = "none";
-    }
+        // 閉じるボタンをクリックした際に、モーダルを非表示にする
+        closeBtn_tweet.onclick = function() {
+        modal_tweet.style.display = "none";
+        }
+        closeBtn_side_edit.onclick = function() {
+        modal_side_edit.style.display = "none";
+        }
+        closeBtn_account_edit.onclick = function() {
+        modal_account_edit.style.display = "none";
+        modal_side_edit.style.display = "block";
+        }
+        closeBtn_account_delete.onclick = function() {
+        modal_account_delete.style.display = "none";
+        modal_side_edit.style.display = "block";
+        }
+        closeBtn_account_delete_pass.onclick = function() {
+        modal_account_delete_pass.style.display = "none";
+        modal_account_delete.style.display = "block";
+        }
 
-    // モーダルの外側をクリックした際に、モーダルを非表示にする
-    window.onclick = function(event) {
-    if (event.target == modal ) {
-        modal.style.display = "none";
-    } else if (event.target == modal_edit)
-        modal_edit.style.display = "none";
-    }
+        // モーダルの外側をクリックした際に、モーダルを非表示にする
+
+        window.onclick = function(event) {
+            if (event.target == modal_tweet ) {
+                modal_tweet.style.display = "none";
+            } else if (event.target == modal_edit) {
+                modal_edit.style.display = "none";
+            } else if (event.target == modal_side_edit) {
+                modal_side_edit.style.display = "none";
+            } else if (event.target == modal_account_edit) {
+                modal_account_edit.style.display = "none";
+            } else if (event.target == modal_account_delete) {
+                modal_account_delete.style.display = "none";
+            } else if (event.target == modal_account_delete_pass) {
+                modal_account_delete_pass.style.display = "none";
+            }
+        }
 
 </script>
